@@ -60,7 +60,7 @@ export class GameComponent implements OnInit{
     });
   }
 
-  addToTheStat(gameStat: GameStats, gameResult: GameState): void {
+  private addToTheStat(gameStat: GameStats, gameResult: GameState): void {
     switch (gameResult) {
       case GameState.WIN_X:
         gameStat.xWin++;
