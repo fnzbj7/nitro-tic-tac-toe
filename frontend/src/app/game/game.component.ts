@@ -20,14 +20,19 @@ export class GameComponent implements OnInit{
 
   ngOnInit(): void {
     this.gameService.createGame().subscribe(game => {
-      console.log('Csak meglett:', game.id);
+      console.log('New Game started:', game.id);
       this.gameId = game.id;
     });
   }
 
   onResetGame(): void {
-    this.gameField = [null, null, null, null, null, null, null, null, null];
-    this.actualPlayer = 'X';
+    this.gameService.createGame().subscribe(game => {
+      console.log('New Game started:', game.id);
+      this.gameId = game.id;
+      this.gameField = [null, null, null, null, null, null, null, null, null];
+      this.actualPlayer = 'X';
+      this.isGameOver = false;
+    });
   }
 
   onMark(field: number): void {
