@@ -1,0 +1,18 @@
+$cell-size: 50px;
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  width: $cell-size;
+  height: $cell-size;
+  border: 1px solid black;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+td:hover {
+  background-color: antiquewhite;
+}

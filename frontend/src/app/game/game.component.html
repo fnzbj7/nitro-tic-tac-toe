@@ -1,0 +1,9 @@
+<table>
+  <tr><td (click)="onMark(0)">{{gameField[0]}}</td><td (click)="onMark(1)">{{gameField[1]}}</td><td (click)="onMark(2)">{{gameField[2]}}</td></tr>
+  <tr><td (click)="onMark(3)">{{gameField[3]}}</td><td (click)="onMark(4)">{{gameField[4]}}</td><td (click)="onMark(5)">{{gameField[5]}}</td></tr>
+  <tr><td (click)="onMark(6)">{{gameField[6]}}</td><td (click)="onMark(7)">{{gameField[7]}}</td><td (click)="onMark(8)">{{gameField[8]}}</td></tr>
+</table>
+<p>Következő játékos: {{nextFigure}}</p>
+<br>
+<button (click)="onResetGame()">Új játék</button>
+
