@@ -3,7 +3,15 @@
   <tr><td (click)="onMark(3)">{{gameField[3]}}</td><td (click)="onMark(4)">{{gameField[4]}}</td><td (click)="onMark(5)">{{gameField[5]}}</td></tr>
   <tr><td (click)="onMark(6)">{{gameField[6]}}</td><td (click)="onMark(7)">{{gameField[7]}}</td><td (click)="onMark(8)">{{gameField[8]}}</td></tr>
 </table>
-<p>Következő játékos: {{nextFigure}}</p>
+<p *ngIf="gameResult === 'UNDECIDED'">Következő játékos: {{actualPlayer}}</p>
+<p *ngIf="gameResult === 'DRAW'">Döntetlen</p>
+<p *ngIf="gameResult === 'WIN_X'">Van nyertesünk: X</p>
+<p *ngIf="gameResult === 'WIN_O'">Van nyertesünk: O</p>
+<br>
+<p>Összesített eredmény:</p>
+<p>X: {{gameStats.xWin}}</p>
+<p>O: {{gameStats.oWin}}</p>
+<p>D: {{gameStats.draw}}</p>
 <br>
 <button (click)="onResetGame()">Új játék</button>
 

@@ -20,9 +20,9 @@ public class GameModel {
      *   6,7,8
      */
     private final List<GameFieldModel> gameField;
-
-    private String nextFigure = "X";
-
+    private String actualPlayer = "X";
+    private int moveCount = 0;
+    private GameState gameState = GameState.UNDECIDED;
 
     public GameModel() {
         gameField = new ArrayList<>(9);
@@ -31,7 +31,15 @@ public class GameModel {
         }
     }
 
-    void changeToTheNextPlayer() {
-        nextFigure = "X".equals(nextFigure) ? "O" : "X";
+    public void changeToTheNextPlayer() {
+        actualPlayer = "X".equals(actualPlayer) ? "O" : "X";
+    }
+
+    public void increaseMoveCount() {
+        moveCount++;
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
     }
 }

@@ -1,15 +1,14 @@
 package hu.nitro.tictactoe.controller;
 
-import hu.nitro.tictactoe.dto.DummyDto;
 import hu.nitro.tictactoe.dto.GameIdDto;
 import hu.nitro.tictactoe.dto.NextStepDto;
+import hu.nitro.tictactoe.model.GameModel;
 import hu.nitro.tictactoe.service.TicTacToeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("tic-tac-toe")
-@CrossOrigin(origins = "http://localhost:4200")
 public class TicTacToeController {
 
     private final TicTacToeService ticTacToeService;
@@ -20,7 +19,6 @@ public class TicTacToeController {
 
 
     @PostMapping(path = "create-game")
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<GameIdDto> createGame() {
 
         GameIdDto gameIdDto = new GameIdDto();
@@ -31,8 +29,9 @@ public class TicTacToeController {
     }
 
     @PutMapping(path = "next-step")
-    public void setNextStep(NextStepDto nextStepDto) {
-        ticTacToeService.processNextStep(nextStepDto);
+    public ResponseEntity<GameModel> setNextStep(@RequestBody NextStepDto nextStepDto) {
+        GameModel gameModel = ticTacToeService.processNextStep(nextStepDto);
+        return ResponseEntity.ok(gameModel);
     }
 
 }
